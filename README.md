@@ -92,10 +92,10 @@
         Clear session
         Redirect to Landing Page
 
-ELSE (user is a guest):
-    Display all recipes in read-only mode
-    Hide "Create Recipe" and "My Recipes" options
-Allow guests to view recipe details but restrict commenting, editing, or creating recipes
+    ELSE (user is a guest):
+        Display all recipes in read-only mode
+        Hide "Create Recipe" and "My Recipes" options
+    Allow guests to view recipe details but restrict commenting, editing, or creating recipes
 
     // COMMENTING
     IF user views another user's recipe:
@@ -107,4 +107,7 @@ Allow guests to view recipe details but restrict commenting, editing, or creatin
     -	React front-End
     -	Express 
     -	Node
+## ERD & Data Entity Fields
+<img src="/Planning/mockUp.png">
+
 
