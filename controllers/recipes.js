@@ -31,6 +31,16 @@ router.get('/', async (req, res) => {
     }
 })
 
+// SHOW - GET ONE RESIPE
+router.get('/:recipesId', async (req, res) => {
+    try {
+      const recipes = await Recipe.findById(req.params.recipesId).populate('author');
+      res.status(200).json(recipes);
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  })
+
 
 
 module.exports = router;
