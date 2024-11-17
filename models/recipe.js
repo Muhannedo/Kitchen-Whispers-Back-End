@@ -16,7 +16,6 @@ const recipeSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
-    unique: true,
   },
   ingredients: {
     type: String,
@@ -36,7 +35,7 @@ const recipeSchema = new mongoose.Schema({
   difficulty: {
     type: String,
     required: true,
-    enum: ['Easy', 'Normal', 'Hard'],
+    enum: ['Easy', 'Normal', 'Hard'] ,
   }
 });
 
