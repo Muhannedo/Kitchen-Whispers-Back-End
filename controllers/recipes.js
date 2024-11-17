@@ -31,6 +31,44 @@ router.get('/', async (req, res) => {
     }
 })
 
+// SHOW - GET ONE RESIPE
+router.get('/:recipeId', async (req, res) => {
+    try {
+      const recipes = await Recipe.findById(req.params.recipeId).populate('author');
+      res.status(200).json(recipes);
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  })
+
+
+// UPDATE A RECIPE
+router.put('/:recipeId', async (req, res) => {
+    try {
+        // Find the recipe
+        const recipe = await Recipe.findById(req.params.recipeId)
+
+        // Check if user owns the recipe
+        if (!recipe.author.equals(req.user._id)) {
+            return res.status(403).send("You're not allowed to do that!")
+        }
+
+        // Update the recipe
+        const updatedRecipe = await Recipe.findByIdAndUpdate(
+            req.params.recipeId,
+            req.body,
+            { new: true }
+        )
+
+        // Add the user object
+        updatedRecipe._doc.author = req.user
+
+        res.status(200).json(updatedRecipe)
+    } catch (error) {
+        res.status(500).json(error)
+    }
+})  
+
 
 
 module.exports = router;
