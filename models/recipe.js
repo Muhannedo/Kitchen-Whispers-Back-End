@@ -40,18 +40,6 @@ const recipeSchema = new mongoose.Schema({
   }
 });
 
-router.put('/:recipeId/comments/:commentId', async (req, res) => {
-    try {
-      const recipe = await recipe.findById(req.params.recipeId);
-      const comment = recipe.comments.id(req.params.commentId);
-      comment.text = req.body.text;
-      await recipe.save();
-      res.status(200).json({ message: 'Ok' });
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
-
 const Recipe = mongoose.model('Recipe', recipeSchema);
 
 module.exports = Recipe;
