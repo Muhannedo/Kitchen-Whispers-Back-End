@@ -21,7 +21,15 @@ router.post('/', async (req, res) => {
     }
 })
 
-
+// INDEX - GET ALL RECIPES
+router.get('/', async (req, res) => {
+    try {
+        const recipes = await Recipe.find({}).populate('author').sort({ createdAt: 'desc' })
+        res.status(200).json(recipes)
+    } catch (error) {
+        res.status(500).json(error)
+    }
+})
 
 
 
