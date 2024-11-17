@@ -112,4 +112,18 @@ router.post("/:recipeId/comments", async (req, res) => {
   }
 });
 
+//update comment
+router.put("/:recipeId/comments/:commentId", async (req, res) => {
+  try {
+    const recipe = await Recipe.findById(req.params.recipeId);
+    const comment = recipe.comments.id(req.params.commentId);
+    comment.text = req.body.text;
+    comment.set(req.body);
+    await recipe.save();
+    res.status(200).json({ message: "Ok" });
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
+
 module.exports = router;
