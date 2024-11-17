@@ -14,28 +14,28 @@
 
   ## Pusedo Code 
   
-// LANDING PAGE
-Display "Welcome to Recipe Manager"
-Display navigation bar with "Sign In" and "Sign Up" options
+    // LANDING PAGE
+    Display "Welcome to Recipe Manager"
+    Display navigation bar with "Sign In" and "Sign Up" options
 
-IF user selects "Sign Up":
-    user for registration details (username and  password)
-Make a new token for the user 
-    Save user details in the database
-    Redirect to Home Page
-
-IF user selects "Sign In":
-    user for email and password
-    Authenticate user(token)
-    IF authentication is successful:
+    IF user selects "Sign Up":
+        user for registration details (username and  password)
+    Make a new token for the user 
+        Save user details in the database
         Redirect to Home Page
-    ELSE:
-        Display "Invalid credentials" error message
 
-// HOME PAGE
-IF user is logged in:
-    Display a personalized welcome message
-    Display navigation bar with options: "Create Recipe", "My Recipes", "Log Out"
+    IF user selects "Sign In":
+        user for email and password
+        Authenticate user(token)
+        IF authentication is successful:
+            Redirect to Home Page
+        ELSE:
+            Display "Invalid credentials" error message
+
+    // HOME PAGE
+    IF user is logged in:
+        Display a personalized welcome message
+        Display navigation bar with options: "Create Recipe", "My Recipes", "Log Out"
     
     // CREATE RECIPE
     IF user selects "Create Recipe":
@@ -102,3 +102,8 @@ Allow guests to view recipe details but restrict commenting, editing, or creatin
         Allow user to add a comment
         Save comment to the database with user ID
         Display all comments for the recipe
+
+## Technologies used: 
+    -	React front-End
+    -	Express 
+    -	Node
