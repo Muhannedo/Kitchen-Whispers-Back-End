@@ -115,7 +115,10 @@ router.post("/:recipeId/comments", async (req, res) => {
 //update comment
 router.put("/:recipeId/comments/:commentId", async (req, res) => {
   try {
-    const recipe = await Recipe.findById(req.params.recipeId);
+    const recipe = await Recipe.findById(req.params.recipeId).populate([
+      "author",
+      "comments.author",
+    ]);
     const comment = recipe.comments.id(req.params.commentId);
     comment.text = req.body.text;
     comment.set(req.body);
