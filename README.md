@@ -3,6 +3,9 @@
 ## Front-End 
 <a href="https://github.com/Muhannedo/Kitchen-Whispers-Front-End">Front-End repo</a>
 
+# project plan
+<img src="/Planning/project.png">
+
 ## User Stories: 
 - 	As a user, I want to sign up so that I can create an account and store my recipes.
 - 	As a user, I want to log in so that I can access my recipes and comments securely.
