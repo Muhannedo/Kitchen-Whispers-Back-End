@@ -79,7 +79,7 @@ router.delete("/:recipeId", async (req, res) => {
     const recipe = await Recipe.findById(req.params.recipeId);
 
     // Check if user owns the recipe
-    if (!recipe.author.equals(req.user._id)) {
+    if (!recipe.author._id.equals(req.user._id)) {
       return res.status(403).send("You're not allowed to do that!");
     }
 
