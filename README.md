@@ -8,7 +8,6 @@
 
 ## User Stories: 
 - 	As a user, I want to sign up so that I can create an account and store my recipes.
-- 	As a user, I want to log in so that I can access my recipes and comments securely.
 - 	As a user, I want to create a new recipe with a title, ingredients, instructions, cook time, and difficulty level.
 - 	As a user, I want to view my recipes and see their details.
 - 	As a user, I want to edit my recipe to update ingredients, instructions, or other details.
@@ -113,6 +112,9 @@
     -	React front-End
     -	Express 
     -	Node
+    -   MONGODB
+    -   JavaScript
+    -   CSS
 ## ERD & Data Entity Fields
 <img src="/Planning/Kitchen Whispers .png">
 
