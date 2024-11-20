@@ -36,9 +36,10 @@ router.get("/", async (req, res) => {
 // SHOW - GET ONE RESIPE
 router.get("/:recipeId", async (req, res) => {
   try {
-    const recipes = await Recipe.findById(req.params.recipeId).populate(
-      "author"
-    );
+    const recipes = await Recipe.findById(req.params.recipeId)      
+    .populate("author", "username") // Populate the author field for the recipe
+    .populate("comments.author", "username") // Populate the author field for each comment
+    .exec();
     res.status(200).json(recipes);
   } catch (error) {
     res.status(500).json(error);
@@ -103,7 +104,7 @@ router.post("/:recipeId/comments", async (req, res) => {
     // Find the newly created comment:
     const newComment = recipe.comments[recipe.comments.length - 1];
 
-    newComment._doc.author = req.user;
+    await newComment.populate("author", "username").execPopulate();
 
     // Respond with the newComment:
     res.status(201).json(newComment);
